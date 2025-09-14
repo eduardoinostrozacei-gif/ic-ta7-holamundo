@@ -22,7 +22,7 @@ pipeline {
                 checkout([$class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/eduardoinostroza-gif/ic-ta7-holamundo.git',
+                        url: 'https://github.com/eduardoinostrozacei-gif/ic-ta7-holamundo.git',
                         credentialsId: 'github-token'
                     ]]
                 ])
