@@ -36,10 +36,10 @@ pipeline {
     }
 
     stage('Deploy a local') {
-      steps {
-        // usa comodín por si cambia version del jar
-        bat 'copy /Y "%PROJECT_DIR%\\target\\holamundo-*.jar" "%DEPLOY_DIR%\\holamundo.jar"'
-        bat 'cd /D "%DEPLOY_DIR%" && (echo Ejecutando... & java -jar holamundo.jar > salida.txt 2>&1) & type salida.txt'
+      steps {       
+bat 'for %%F in ("%PROJECT_DIR%\\target\\*.jar") do copy /Y "%%~fF" "%DEPLOY_DIR%\\app.jar"'
+bat 'cd /D "%DEPLOY_DIR%" && (echo Ejecutando... & java -jar app.jar > salida.txt 2>&1) & type salida.txt'
+
       }
     }
   }
